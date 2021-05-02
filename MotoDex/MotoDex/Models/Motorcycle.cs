@@ -13,8 +13,8 @@ namespace MotoDex.Models
         public string Make { get; set; }
         public string Model { get; set; }
         public Engine Engine { get; set; }
-        public string FrontTyre { get; set; }
-        public string RearTyre { get; set; }
+        public Tyre FrontTyre { get; set; }
+        public Tyre RearTyre { get; set; }
         public string FrontBreakPads { get; set; }
         public string RearBreakPads { get; set; }
     }
