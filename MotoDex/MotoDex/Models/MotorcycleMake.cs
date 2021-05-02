@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace MotoDex.Models
 {
@@ -9,6 +11,7 @@ namespace MotoDex.Models
         public string Name { get; set; }
         public string Summary { get; set; }
 
-        public Motorcycle[] Motorcycles { get; set; }
+        //[JsonIgnore]
+        public ICollection<Motorcycle> Motorcycles { get; set; }
     }
 }

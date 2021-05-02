@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace MotoDex.Models
 {
@@ -11,5 +13,8 @@ namespace MotoDex.Models
         public int TyreWidth { get; set; }
         public int HeightAspect { get; set; }
         public int RimSize { get; set; }
+
+        //[JsonIgnore]
+        public ICollection<Motorcycle> Motorcycles { get; set; }
     }
 }

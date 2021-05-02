@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace MotoDex.Models
@@ -14,8 +15,9 @@ namespace MotoDex.Models
         public string Model { get; set; }
         public Engine Engine { get; set; }
         public string FinalDrive { get; set; }
-        public Tyre FrontTyre { get; set; }
-        public Tyre RearTyre { get; set; }
+
+        public ICollection<Tyre> FrontTyre { get; set; }
+        public ICollection<Tyre> RearTyre { get; set; }
         public BreakPad FrontBreakPads { get; set; }
         public BreakPad RearBreakPads { get; set; }
     }
