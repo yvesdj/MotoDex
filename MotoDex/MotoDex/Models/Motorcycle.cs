@@ -16,8 +16,8 @@ namespace MotoDex.Models
         public Engine Engine { get; set; }
         public string FinalDrive { get; set; }
 
-        public ICollection<Tyre> FrontTyre { get; set; }
-        public ICollection<Tyre> RearTyre { get; set; }
+        public virtual ICollection<Tyre> FrontTyre { get; set; }
+        //public virtual ICollection<Tyre> RearTyre { get; set; }
         public BreakPad FrontBreakPads { get; set; }
         public BreakPad RearBreakPads { get; set; }
     }
