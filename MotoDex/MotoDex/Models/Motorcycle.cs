@@ -10,12 +10,13 @@ namespace MotoDex.Models
     {
         [Key]
         public int Id { get; set; }
-        public string Make { get; set; }
+        public MotorcycleMake Make { get; set; }
         public string Model { get; set; }
         public Engine Engine { get; set; }
+        public string FinalDrive { get; set; }
         public Tyre FrontTyre { get; set; }
         public Tyre RearTyre { get; set; }
-        public string FrontBreakPads { get; set; }
-        public string RearBreakPads { get; set; }
+        public BreakPad FrontBreakPads { get; set; }
+        public BreakPad RearBreakPads { get; set; }
     }
 }
