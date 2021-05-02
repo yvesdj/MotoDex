@@ -40,9 +40,13 @@ namespace MotoDex.Controllers
         [HttpGet]
         public IActionResult GetMotorcycle(int id)
         {
-            // Only included Make for now
             Motorcycle motorcycle = _context.Motorcycles
-                .Include(motorcycle => motorcycle.Make).SingleOrDefault(motorcycle => motorcycle.Id == id);
+                .Include(motorcycle => motorcycle.Make)
+                .Include(moto => moto.Engine)
+                .Include(moto => moto.FrontTyre)
+                .Include(moto => moto.FrontBreakPads)
+                .Include(moto => moto.RearBreakPads)
+                .SingleOrDefault(motorcycle => motorcycle.Id == id);
 
             if (motorcycle == null)
                 return NotFound();
