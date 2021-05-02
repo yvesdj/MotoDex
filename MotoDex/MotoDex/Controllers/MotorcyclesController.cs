@@ -41,7 +41,7 @@ namespace MotoDex.Controllers
         public IActionResult GetMotorcycle(int id)
         {
             Motorcycle motorcycle = _context.Motorcycles
-                .Include(motorcycle => motorcycle.Make)
+                .Include(moto => moto.Make)
                 .Include(moto => moto.Engine)
                 .Include(moto => moto.FrontTyre)
                 //.Include(moto => moto.RearTyre)

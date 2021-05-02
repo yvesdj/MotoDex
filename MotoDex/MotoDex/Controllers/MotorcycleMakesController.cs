@@ -12,11 +12,11 @@ namespace MotoDex.Controllers
 {
     [Route("api/v1/[controller]")]
     [ApiController]
-    public class MotorcycleMakeController : ControllerBase
+    public class MotorcycleMakesController : ControllerBase
     {
         private readonly MotorcyclesContext _context;
 
-        public MotorcycleMakeController(MotorcyclesContext context)
+        public MotorcycleMakesController(MotorcyclesContext context)
         {
             _context = context;
         }
@@ -42,6 +42,15 @@ namespace MotoDex.Controllers
         {
             MotorcycleMake make = _context.MotorcycleMakes
                 .Include(make => make.Motorcycles)
+                    .ThenInclude(moto => moto.Engine)
+                .Include(make => make.Motorcycles)
+                    .ThenInclude(moto => moto.FrontTyre)
+                //.Include(make => make.Motorcycles)
+                //    .ThenInclude(moto => moto.RearTyre)
+                .Include(make => make.Motorcycles)
+                    .ThenInclude(moto => moto.FrontBreakPads)
+                .Include(make => make.Motorcycles)
+                    .ThenInclude(moto => moto.RearBreakPads)
                 .SingleOrDefault(make => make.Id == id);
 
             if (make == null)
