@@ -12,10 +12,7 @@ namespace MotoDex.Models
         public int Id { get; set; }
         public string Make { get; set; }
         public string Model { get; set; }
-        public string EngineType { get; set; }
-        public int Capacity { get; set; }
-        public string SparkPlug { get; set; }
-        public float Bhp { get; set; }
+        public Engine Engine { get; set; }
         public string FrontTyre { get; set; }
         public string RearTyre { get; set; }
         public string FrontBreakPads { get; set; }
