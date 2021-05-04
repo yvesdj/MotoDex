@@ -21,6 +21,10 @@ namespace MotoDex.Db
 
         public DbSet<Tyre> Tyres { get; set; }
 
+        public DbSet<MotorcycleFrontTyres> MotorcycleFrontTyres { get; set; }
+
+        public DbSet<MotorcycleRearTyres> MotorcycleRearTyres { get; set; }
+
         public DbSet<BreakPad> BreakPads { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

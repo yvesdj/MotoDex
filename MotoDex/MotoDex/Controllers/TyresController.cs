@@ -43,6 +43,9 @@ namespace MotoDex.Controllers
             Tyre tyre = _context.Tyres
                 .Include(tyre => tyre.MotorcycleFrontTyres)
                     .ThenInclude(mft => mft.Motorcycle)
+                        .ThenInclude(moto => moto.Make)
+                .Include(tyre => tyre.MotorcycleFrontTyres)
+                    .ThenInclude(mft => mft.Motorcycle)
                         .ThenInclude(moto => moto.Engine)
                 .Include(tyre => tyre.MotorcycleFrontTyres)
                     .ThenInclude(mft => mft.Motorcycle)
