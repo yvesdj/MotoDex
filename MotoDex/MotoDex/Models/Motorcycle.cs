@@ -23,13 +23,13 @@ namespace MotoDex.Models
 
         public string FinalDrive { get; set; }
 
-        public virtual ICollection<MotorcycleFrontTyres> MotorcycleFrontTyres { get; set; }
-        public virtual ICollection<MotorcycleRearTyres> MotorcycleRearTyres { get; set; }
+        public virtual ICollection<MotorcycleFrontTyres> MotorcycleFrontTyres { get; set; } = new List<MotorcycleFrontTyres>();
+        public virtual ICollection<MotorcycleRearTyres> MotorcycleRearTyres { get; set; } = new List<MotorcycleRearTyres>();
 
-        public int FrontBreakPadsId { get; set; }
+        public int? FrontBreakPadsId { get; set; }
         public BreakPad FrontBreakPads { get; set; }
 
-        public int RearBreakPadsId { get; set; }
+        public int? RearBreakPadsId { get; set; }
         public BreakPad RearBreakPads { get; set; }
     }
 }

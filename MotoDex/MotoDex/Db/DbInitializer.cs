@@ -57,7 +57,25 @@ namespace MotoDex.Db
                     RimSize = 17
                 };
 
-                Tyre bTyreY = new()
+                Tyre rTyreH = new()
+                {
+                    Make = "Pirelli",
+                    Model = "Angel GT2",
+                    TyreWidth = 170,
+                    HeightAspect = 60,
+                    RimSize = 17
+                };
+
+                Tyre fTyreY = new()
+                {
+                    Make = "Metzeler",
+                    Model = "Block C",
+                    TyreWidth = 3.00f,
+                    HeightAspect = 0,
+                    RimSize = 19
+                };
+
+                Tyre rTyreY = new()
                 {
                     Make = "Metzeler",
                     Model = "Perfect ME77",
@@ -85,8 +103,6 @@ namespace MotoDex.Db
                     FinalDrive = "Chain Driven",
                     Make = honda,
                     Engine = engineH,
-                    //RearTyre = new List<Tyre>() { fTyre },
-                    MotorcycleFrontTyres = new List<MotorcycleFrontTyres>() { fTyreH, fTyreH2 },
                     FrontBreakPads = brkPadH,
                     RearBreakPads = brkPadH
                 };
@@ -97,15 +113,49 @@ namespace MotoDex.Db
                     FinalDrive = "Shaft Driven",
                     Make = yamaha,
                     Engine = engineY,
-                    //RearTyre = new List<Tyre>() { fTyre },
-                    MotorcycleFrontTyres = new List<MotorcycleFrontTyres>() { bTyreY },
                     FrontBreakPads = brkPadY,
                     RearBreakPads = brkPadY
+                };
+
+                MotorcycleFrontTyres mftVfr = new()
+                {
+                    Motorcycle = vfr,
+                    FrontTyre = fTyreH
+                };
+
+                MotorcycleFrontTyres mft2Vfr = new()
+                {
+                    Motorcycle = vfr,
+                    FrontTyre = fTyreH2
+                };
+
+                MotorcycleRearTyres mrtVfr = new()
+                {
+                    Motorcycle = vfr,
+                    RearTyre = rTyreH
+                };
+
+                MotorcycleFrontTyres mftXv535 = new()
+                {
+                    Motorcycle = xv535,
+                    FrontTyre = fTyreY
+                };
+
+                MotorcycleRearTyres mrtXv535 = new()
+                {
+                    Motorcycle = xv535,
+                    RearTyre = rTyreY
                 };
 
                 //honda.Motorcycles = new List<Motorcycle>() { vfr };
 
                 //fTyreH.Motorcycles = new List<Motorcycle>() { vfr };
+                vfr.MotorcycleFrontTyres.Add(mftVfr);
+                vfr.MotorcycleFrontTyres.Add(mft2Vfr);
+                vfr.MotorcycleRearTyres.Add(mrtVfr);
+
+                xv535.MotorcycleFrontTyres.Add(mftXv535);
+                xv535.MotorcycleRearTyres.Add(mrtXv535);
 
                 context.Motorcycles.Add(vfr);
                 context.Motorcycles.Add(xv535);

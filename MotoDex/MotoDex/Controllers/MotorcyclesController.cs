@@ -44,7 +44,7 @@ namespace MotoDex.Controllers
                 .Include(moto => moto.Make)
                 .Include(moto => moto.Engine)
                 .Include(moto => moto.MotorcycleFrontTyres)
-                //.Include(moto => moto.RearTyre)
+                .Include(moto => moto.MotorcycleRearTyres)
                 .Include(moto => moto.FrontBreakPads)
                 .Include(moto => moto.RearBreakPads)
                 .SingleOrDefault(motorcycle => motorcycle.Id == id);

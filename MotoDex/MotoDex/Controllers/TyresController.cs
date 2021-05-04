@@ -41,16 +41,15 @@ namespace MotoDex.Controllers
         public IActionResult GetTyre(int id)
         {
             Tyre tyre = _context.Tyres
-                .Include(tyre => tyre.Motorcycles)
-                    .ThenInclude(moto => moto.Engine)
-                .Include(tyre => tyre.Motorcycles)
-                    .ThenInclude(moto => moto.MotorcycleFrontTyres)
-                //.Include(make => make.Motorcycles)
-                //    .ThenInclude(moto => moto.RearTyre)
-                .Include(tyre => tyre.Motorcycles)
-                    .ThenInclude(moto => moto.FrontBreakPads)
-                .Include(tyre => tyre.Motorcycles)
-                    .ThenInclude(moto => moto.RearBreakPads)
+                .Include(tyre => tyre.MotorcycleFrontTyres)
+                    .ThenInclude(mft => mft.Motorcycle)
+                        .ThenInclude(moto => moto.Engine)
+                .Include(tyre => tyre.MotorcycleFrontTyres)
+                    .ThenInclude(mft => mft.Motorcycle)
+                        .ThenInclude(moto => moto.FrontBreakPads)
+                .Include(tyre => tyre.MotorcycleFrontTyres)
+                    .ThenInclude(mft => mft.Motorcycle)
+                        .ThenInclude(moto => moto.RearBreakPads)
                 .SingleOrDefault(tyre => tyre.Id == id);
 
             if (tyre == null)
@@ -76,7 +75,7 @@ namespace MotoDex.Controllers
                 tyre.HeightAspect = upMotorcycle.HeightAspect;
                 tyre.RimSize = upMotorcycle.RimSize;
                 //motorcycle.RearTyre = upMotorcycle.RearTyre;
-                tyre.Motorcycles = upMotorcycle.Motorcycles;
+                //tyre.Motorcycles = upMotorcycle.Motorcycles;
 
                 _context.SaveChanges();
                 return Created("", tyre);

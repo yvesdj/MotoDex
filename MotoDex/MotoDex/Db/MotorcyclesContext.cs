@@ -25,6 +25,8 @@ namespace MotoDex.Db
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            #region MotorcycleTyres
+
             modelBuilder.Entity<MotorcycleFrontTyres>()
                 .HasKey(mft => new { mft.MotorcycleId, mft.FrontTyreId });
 
@@ -50,6 +52,11 @@ namespace MotoDex.Db
                 .HasOne(mft => mft.RearTyre)
                 .WithMany(rTyre => rTyre.MotorcycleRearTyres)
                 .HasForeignKey(mft => mft.RearTyreId);
+
+            #endregion
+
+            //modelBuilder.Entity<Motorcycle>()
+            //    .Has
         }
     }
 }
