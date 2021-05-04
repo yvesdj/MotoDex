@@ -23,10 +23,8 @@ namespace MotoDex.Models
 
         public string FinalDrive { get; set; }
 
-        [ForeignKey("FrontTyreId")]
-        public ICollection<int> FrontTyreId { get; set; }
-        public virtual ICollection<Tyre> FrontTyre { get; set; }
-        //public virtual ICollection<Tyre> RearTyre { get; set; }
+        public virtual ICollection<MotorcycleFrontTyres> MotorcycleFrontTyres { get; set; }
+        public virtual ICollection<MotorcycleRearTyres> MotorcycleRearTyres { get; set; }
 
         public int FrontBreakPadsId { get; set; }
         public BreakPad FrontBreakPads { get; set; }

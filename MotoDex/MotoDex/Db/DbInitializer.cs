@@ -86,7 +86,7 @@ namespace MotoDex.Db
                     Make = honda,
                     Engine = engineH,
                     //RearTyre = new List<Tyre>() { fTyre },
-                    FrontTyre = new List<Tyre>() { fTyreH, fTyreH2 },
+                    MotorcycleFrontTyres = new List<MotorcycleFrontTyres>() { fTyreH, fTyreH2 },
                     FrontBreakPads = brkPadH,
                     RearBreakPads = brkPadH
                 };
@@ -98,7 +98,7 @@ namespace MotoDex.Db
                     Make = yamaha,
                     Engine = engineY,
                     //RearTyre = new List<Tyre>() { fTyre },
-                    FrontTyre = new List<Tyre>() { bTyreY },
+                    MotorcycleFrontTyres = new List<MotorcycleFrontTyres>() { bTyreY },
                     FrontBreakPads = brkPadY,
                     RearBreakPads = brkPadY
                 };

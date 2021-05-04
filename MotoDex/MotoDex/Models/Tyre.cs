@@ -15,6 +15,7 @@ namespace MotoDex.Models
         public int RimSize { get; set; }
 
         //[JsonIgnore]
-        public virtual ICollection<Motorcycle> Motorcycles { get; set; }
+        public virtual ICollection<MotorcycleFrontTyres> MotorcycleFrontTyres { get; set; }
+        public virtual ICollection<MotorcycleRearTyres> MotorcycleRearTyres { get; set; }
     }
 }

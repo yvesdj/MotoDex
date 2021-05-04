@@ -43,7 +43,7 @@ namespace MotoDex.Controllers
             Motorcycle motorcycle = _context.Motorcycles
                 .Include(moto => moto.Make)
                 .Include(moto => moto.Engine)
-                .Include(moto => moto.FrontTyre)
+                .Include(moto => moto.MotorcycleFrontTyres)
                 //.Include(moto => moto.RearTyre)
                 .Include(moto => moto.FrontBreakPads)
                 .Include(moto => moto.RearBreakPads)
@@ -70,7 +70,7 @@ namespace MotoDex.Controllers
                 motorcycle.Model = upMotorcycle.Model;
                 motorcycle.Engine = upMotorcycle.Engine;
                 motorcycle.FinalDrive = upMotorcycle.FinalDrive;
-                motorcycle.FrontTyre = upMotorcycle.FrontTyre;
+                motorcycle.MotorcycleFrontTyres = upMotorcycle.MotorcycleFrontTyres;
                 //motorcycle.RearTyre = upMotorcycle.RearTyre;
                 motorcycle.FrontBreakPads = upMotorcycle.FrontBreakPads;
                 motorcycle.RearBreakPads = upMotorcycle.RearBreakPads;

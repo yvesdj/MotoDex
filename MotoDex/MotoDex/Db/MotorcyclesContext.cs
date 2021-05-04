@@ -22,5 +22,34 @@ namespace MotoDex.Db
         public DbSet<Tyre> Tyres { get; set; }
 
         public DbSet<BreakPad> BreakPads { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<MotorcycleFrontTyres>()
+                .HasKey(mft => new { mft.MotorcycleId, mft.FrontTyreId });
+
+            modelBuilder.Entity<MotorcycleFrontTyres>()
+                .HasOne(mft => mft.Motorcycle)
+                .WithMany(m => m.MotorcycleFrontTyres)
+                .HasForeignKey(mft => mft.MotorcycleId);
+
+            modelBuilder.Entity<MotorcycleFrontTyres>()
+                .HasOne(mft => mft.FrontTyre)
+                .WithMany(fTyre => fTyre.MotorcycleFrontTyres)
+                .HasForeignKey(mft => mft.FrontTyreId);
+
+            modelBuilder.Entity<MotorcycleRearTyres>()
+                .HasKey(mft => new { mft.MotorcycleId, mft.RearTyreId });
+
+            modelBuilder.Entity<MotorcycleRearTyres>()
+                .HasOne(mft => mft.Motorcycle)
+                .WithMany(m => m.MotorcycleRearTyres)
+                .HasForeignKey(mft => mft.MotorcycleId);
+
+            modelBuilder.Entity<MotorcycleRearTyres>()
+                .HasOne(mft => mft.RearTyre)
+                .WithMany(rTyre => rTyre.MotorcycleRearTyres)
+                .HasForeignKey(mft => mft.RearTyreId);
+        }
     }
 }
