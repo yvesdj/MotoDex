@@ -31,10 +31,10 @@ namespace MotoDex.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Motorcycle> GetAllMotorcycles(string model, string make, string sort, string dir)
+        public IEnumerable<Motorcycle> GetAllMotorcycles(string model, string make, string sort, string dir, int? page, int? length)
         {
             IQueryable<Motorcycle> motos = _context.Motorcycles;
-
+            #region Query
             if (!string.IsNullOrWhiteSpace(model))
             {
                 motos = motos.Where(moto => moto.Model == model);
@@ -47,6 +47,9 @@ namespace MotoDex.Controllers
                 //return motos;
             }
             //return _context.Motorcycles.ToList();
+            #endregion
+
+            #region OrderBy
             if (!string.IsNullOrWhiteSpace(sort))
             {
                 switch (sort)
@@ -69,6 +72,15 @@ namespace MotoDex.Controllers
                         break;
                 }
             }
+            #endregion
+
+            #region Paging
+            if (page.HasValue && length.HasValue)
+            {
+                motos = motos.Skip(page.Value * length.Value);
+                motos = motos.Take(length.Value);
+            }
+            #endregion
 
             return motos.ToList();
         }
