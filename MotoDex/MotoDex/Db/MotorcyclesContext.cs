@@ -59,8 +59,6 @@ namespace MotoDex.Db
 
             #endregion
 
-            //modelBuilder.Entity<Motorcycle>()
-            //    .Has
         }
     }
 }
