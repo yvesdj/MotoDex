@@ -31,9 +31,22 @@ namespace MotoDex.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Motorcycle> GetAllMotorcycles()
+        public IEnumerable<Motorcycle> GetAllMotorcycles([FromQuery] string model, [FromQuery] string make)
         {
-            return _context.Motorcycles.ToList();
+            IQueryable<Motorcycle> motos = _context.Motorcycles;
+
+            if (!string.IsNullOrWhiteSpace(model))
+            {
+                motos = motos.Where(moto => moto.Model == model);
+                return motos;
+            }
+            else if (!string.IsNullOrWhiteSpace(make))
+            {
+                motos = motos
+                    .Where(moto => moto.Make.Name == make);
+                return motos;
+            }
+                return _context.Motorcycles.ToList();
         }
 
         [Route("{id}")]
