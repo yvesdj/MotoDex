@@ -79,10 +79,28 @@ namespace MotoDex.Controllers
                 motorcycle.EngineId = upMotorcycle.EngineId;
                 motorcycle.FinalDrive = upMotorcycle.FinalDrive;
 
-                //motorcycle.MotorcycleFrontTyres.Add(new MotorcycleFrontTyres
+
+                // Check is not possible because motorcycle tyres arent queried
+                // So motorcycle.MotorcycleFrontTyres == 0
+                //foreach (MotorcycleFrontTyres upMft in upMotorcycle.MotorcycleFrontTyres)
                 //{
-                //    FrontTyreId = upMotorcycle.MotorcycleFrontTyres.FrontTyreId
-                //});
+                //    foreach (MotorcycleFrontTyres mft in motorcycle.MotorcycleFrontTyres)
+                //    {
+                //        if (upMft.FrontTyreId == mft.FrontTyreId)
+                //        {
+                //            continue;
+                //        }
+                //        else
+                //        {
+                //            motorcycle.MotorcycleFrontTyres.Add(new MotorcycleFrontTyres
+                //            {
+                //                FrontTyreId = upMft.FrontTyreId,
+                //                MotorcycleId = motorcycle.Id
+                //            });
+                //        }
+                //    }
+                //}
+
                 foreach (MotorcycleFrontTyres mft in upMotorcycle.MotorcycleFrontTyres)
                 {
                     motorcycle.MotorcycleFrontTyres.Add(new MotorcycleFrontTyres
