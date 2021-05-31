@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 
@@ -19,6 +19,17 @@ export class MotorcyclesService {
   private _motoDexAddress = "https://localhost:44346/api/v1/";
 
   constructor(private _http: HttpClient) { }
+
+  public PostObject(body: any, type: string){
+    const headers = new HttpHeaders()
+    .append(
+      'Content-Type',
+      'application/json'
+    );
+    return this._http.post<any>(this._motoDexAddress + type, body, {
+      headers: headers
+    }).subscribe((res) => console.log(res));
+  }
 
   public GetJsonMotorcycles(){
     return this._http.get<IMotorcycle[]>(this._motoDexAddress + "motorcycles").toPromise();

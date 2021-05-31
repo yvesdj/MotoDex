@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule  } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 
 
 import { MaterialModule } from './material/material.module';
@@ -17,6 +17,7 @@ import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.com
 import { MotorcyclesComponent } from './motorcycles/motorcycles.component';
 import { OverviewComponent } from './motorcycles/overview/overview.component';
 import { DeleteComponent } from './motorcycles/delete/delete.component';
+import { AddMotoComponent } from './motorcycles/add-moto/add-moto.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { DeleteComponent } from './motorcycles/delete/delete.component';
     MotorcyclesComponent,
     OverviewComponent,
     DeleteComponent,
+    AddMotoComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,7 +37,8 @@ import { DeleteComponent } from './motorcycles/delete/delete.component';
     BrowserAnimationsModule,
     AppRoutingModule,
     FlexLayoutModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

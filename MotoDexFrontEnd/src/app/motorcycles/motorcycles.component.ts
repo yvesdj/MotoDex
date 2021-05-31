@@ -15,24 +15,11 @@ export class MotorcyclesComponent implements OnInit {
     return this._motoService.selectedMotorcycle
   }
 
-  // selectedMoto: any;
-
-  
-
   constructor(private _motoService: MotorcyclesService) {
     
   }
 
   ngOnInit(): void {
   }
-
-  // ngOnDestroy() {
-  //   //prevent memory leak when component destroyed
-  //    this._subscription.unsubscribe();
-  //  }
-
-  // async GetData(){
-  //   this.motorcycles = await this._motoService.GetMotorcycles;
-  // }
 
 }

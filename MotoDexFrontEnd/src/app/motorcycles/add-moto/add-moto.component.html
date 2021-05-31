@@ -1,0 +1,88 @@
+<br>
+<br>
+<form [formGroup]="makeForm" (ngSubmit)="makeOnSubmit()">
+    <h3>Make</h3>
+
+    <div>
+        <label for="name">
+          Name
+        </label>
+        <input id="name" type="text" formControlName="name">
+      </div>
+    
+      <div>
+        <label for="summary">
+          Summary
+        </label>
+        <input id="summary" type="text" formControlName="summary">
+      </div>
+    
+
+    <button type="submit">Submit</button>
+</form>
+<br>
+<br>
+<form [formGroup]="engineForm" (ngSubmit)="engineOnSubmit()">
+    <h3>Engine</h3>
+
+    <div>
+        <label for="engineType">
+          Engine Type
+        </label>
+        <input id="engineType" type="text" formControlName="engineType">
+      </div>
+    
+      <div>
+        <label for="engineConfiguration">
+            Engine Configuration
+        </label>
+        <input id="summary" type="text" formControlName="engineConfiguration">
+      </div>
+
+      <div>
+        <label for="capacity">
+            Engine Capacity
+        </label>
+        <input id="capacity" type="number" formControlName="capacity">
+      </div>
+
+      <div>
+        <label for="maxPower">
+            Max Power
+        </label>
+        <input id="maxPower" type="number" formControlName="maxPower">
+      </div>
+
+      <div>
+        <label for="maxTorque">
+            Max Torque
+        </label>
+        <input id="maxTorque" type="number" formControlName="maxTorque">
+      </div>
+
+      <div>
+        <label for="cooling">
+            Cooling
+        </label>
+        <input id="cooling" type="text" formControlName="cooling">
+      </div>
+
+      <div>
+        <label for="inductionType">
+            Induction Type
+        </label>
+        <input id="inductionType" type="text" formControlName="inductionType">
+      </div>
+
+      <div>
+        <label for="sparkPlug">
+            Spark Plug
+        </label>
+        <input id="sparkPlug" type="text" formControlName="sparkPlug">
+      </div>
+    
+
+    <button type="submit">Submit</button>
+</form>
+<br>
+<br>
