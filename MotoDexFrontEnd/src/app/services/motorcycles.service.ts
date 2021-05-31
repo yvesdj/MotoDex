@@ -1,11 +1,17 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MotorcyclesService {
+
+  private _deleteSuccessful$: Subject<boolean> = new Subject();
+
+  get deleteSuccessful$(): Observable<boolean> {
+    return this._deleteSuccessful$.asObservable();
+} 
 
   motorcycles: IMotorcycle[] = [];
   selectedMotorcycle: any;
@@ -30,6 +36,7 @@ export class MotorcyclesService {
     return this._http.delete(this._motoDexAddress + "motorcycles/" + id).subscribe({
       next: data => {
           console.log("Delete Succesfull.");
+          this._deleteSuccessful$.next(true);
       },
       error: error => {
           console.error('There was an error!', error);

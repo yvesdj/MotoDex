@@ -10,6 +10,7 @@ namespace MotoDex.Db
     {
         public static void Initialize(MotorcyclesContext context)
         {
+            context.Database.EnsureDeleted();
             context.Database.EnsureCreated();
 
             if (!context.Motorcycles.Any())
