@@ -86,3 +86,75 @@
 </form>
 <br>
 <br>
+<form [formGroup]="tyreForm" (ngSubmit)="tyreOnSubmit()">
+    <h3>Tyre</h3>
+
+    <div>
+        <label for="make">
+            Make
+        </label>
+        <input id="make" type="text" formControlName="make">
+      </div>
+    
+      <div>
+        <label for="model">
+            Model
+        </label>
+        <input id="model" type="text" formControlName="model">
+      </div>
+
+      <div>
+        <label for="tyreWidth">
+            Tyre Width
+        </label>
+        <input id="tyreWidth" type="number" formControlName="tyreWidth">
+      </div>
+
+      <div>
+        <label for="heightAspect">
+            Height Aspect
+        </label>
+        <input id="heightAspect" type="number" formControlName="heightAspect">
+      </div>
+
+      <div>
+        <label for="rimSize">
+            Rim Size
+        </label>
+        <input id="rimSize" type="number" formControlName="rimSize">
+      </div>
+
+      
+    <button type="submit">Submit</button>
+</form>
+<br>
+<br>
+<form [formGroup]="breakPadForm" (ngSubmit)="breakPadOnSubmit()">
+    <h3>Break Pad</h3>
+
+    <div>
+        <label for="padType">
+            Pad Type
+        </label>
+        <input id="padType" type="text" formControlName="padType">
+      </div>
+    
+      <div>
+        <label for="make">
+          Make
+        </label>
+        <input id="make" type="text" formControlName="make">
+      </div>
+
+      <div>
+        <label for="model">
+          Model
+        </label>
+        <input id="model" type="text" formControlName="model">
+      </div>
+    
+
+    <button type="submit">Submit</button>
+</form>
+<br>
+<br>
