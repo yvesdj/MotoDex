@@ -158,3 +158,67 @@
 </form>
 <br>
 <br>
+<form [formGroup]="motoForm" (ngSubmit)="motoOnSubmit()">
+    <h3>Motorcycle</h3>
+
+    <div>
+        <label for="makeId">
+            MakeID
+        </label>
+        <input id="makeId" type="number" formControlName="makeId">
+      </div>
+    
+      <div>
+        <label for="model">
+            Model
+        </label>
+        <input id="model" type="text" formControlName="model">
+      </div>
+
+      <div>
+        <label for="engineId">
+            EngineId
+        </label>
+        <input id="engineId" type="number" formControlName="engineId">
+      </div>
+
+      <div>
+        <label for="finalDrive">
+            Final Drive
+        </label>
+        <input id="finalDrive" type="text" formControlName="finalDrive">
+      </div>
+
+      <div>
+        <label for="motorcycleFrontTyres">
+            Front Tyres
+        </label>
+        <input id="motorcycleFrontTyres" type="number" formControlName="motorcycleFrontTyres">
+      </div>
+
+      <div>
+        <label for="motorcycleRearTyres">
+            Rear Tyres
+        </label>
+        <input id="motorcycleRearTyres" type="number" formControlName="motorcycleRearTyres">
+      </div>
+
+      <div>
+        <label for="frontBreakPadsId">
+           Front Break Pads Id
+        </label>
+        <input id="frontBreakPadsId" type="number" formControlName="frontBreakPadsId">
+      </div>
+
+      <div>
+        <label for="rearBreakPadsId">
+           Rear Break Pads Id
+        </label>
+        <input id="rearBreakPadsId" type="number" formControlName="rearBreakPadsId">
+      </div>
+    
+
+    <button type="submit">Submit</button>
+</form>
+<br>
+<br>

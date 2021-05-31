@@ -40,6 +40,17 @@ export class AddMotoComponent implements OnInit {
     model: ''
   })
 
+  motoForm = this._formBuilder.group({
+    makeId: '',
+    model: '',
+    engineId: '',
+    finalDrive: '',
+    motorcycleFrontTyres: [],
+    motorcycleRearTyres: [],
+    frontBreakPadsId: '',
+    rearBreakPadsId: '',
+  })
+
   constructor(private _motoService: MotorcyclesService, private _formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
@@ -60,17 +71,25 @@ export class AddMotoComponent implements OnInit {
   }
 
   tyreOnSubmit(): void {
-    let body = JSON.stringify(this.engineForm.value);
+    let body = JSON.stringify(this.tyreForm.value);
 
     this._motoService.PostObject(body, "tyres")
-    this.engineForm.reset();
+    this.tyreForm.reset();
   }
 
   breakPadOnSubmit(): void {
-    let body = JSON.stringify(this.engineForm.value);
+    let body = JSON.stringify(this.breakPadForm.value);
 
     this._motoService.PostObject(body, "breakpads")
-    this.engineForm.reset();
+    this.breakPadForm.reset();
+  }
+
+  motoOnSubmit(): void {
+    console.log(this.motoForm.value);
+    let body = JSON.stringify(this.motoForm.value);
+
+    this._motoService.PostObject(body, "motorcycles")
+    // this.motoForm.reset();
   }
 
 }
