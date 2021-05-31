@@ -26,7 +26,18 @@ export class MotorcyclesService {
     return this._http.get<IMotorcycle>(this._motoDexAddress + "motorcycles/" + id).toPromise();
   }
 
-  motoChange: Subject<IMotorcycle> = new Subject<IMotorcycle>();
+  public DeleteMotorcycleById(id: number){
+    return this._http.delete(this._motoDexAddress + "motorcycles/" + id).subscribe({
+      next: data => {
+          console.log("Delete Succesfull.");
+      },
+      error: error => {
+          console.error('There was an error!', error);
+      }
+  });
+  }
+
+  // motoChange: Subject<IMotorcycle> = new Subject<IMotorcycle>();
 
 }
 

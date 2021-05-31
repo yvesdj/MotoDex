@@ -7,7 +7,6 @@ import { IMotorcycle, MotorcyclesService } from 'src/app/services/motorcycles.se
   styleUrls: ['./overview.component.css']
 })
 export class OverviewComponent implements OnInit {
-  typesOfShoes: string[] = ['Boots', 'Clogs', 'Loafers', 'Moccasins', 'Sneakers'];
   motorcycles: IMotorcycle[] = [];
 
   selectedMoto: any;

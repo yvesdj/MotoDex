@@ -1,1 +1,8 @@
-<p>delete works!</p>
+<mat-spinner *ngIf="motorcycles.length === 0"></mat-spinner>
+
+<mat-action-list  #motos>
+    <button mat-list-item *ngFor="let moto of motorcycles" [value]="moto" (click)="DeleteMoto(moto)">
+      {{moto.make.name}} {{moto.model}}
+    </button>
+    
+  </mat-action-list>
