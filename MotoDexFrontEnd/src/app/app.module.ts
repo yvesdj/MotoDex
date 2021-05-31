@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule  } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+
 
 import { MaterialModule } from './material/material.module';
 
@@ -13,6 +16,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
 import { MotorcyclesComponent } from './motorcycles/motorcycles.component';
 import { OverviewComponent } from './motorcycles/overview/overview.component';
+import { DeleteComponent } from './motorcycles/delete/delete.component';
 
 @NgModule({
   declarations: [
@@ -22,13 +26,16 @@ import { OverviewComponent } from './motorcycles/overview/overview.component';
     SidenavListComponent,
     MotorcyclesComponent,
     OverviewComponent,
+    DeleteComponent,
   ],
   imports: [
     BrowserModule,
+    HttpClientModule ,
     MaterialModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

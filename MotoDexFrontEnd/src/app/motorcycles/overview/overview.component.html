@@ -1,9 +1,8 @@
-<mat-selection-list #shoes [multiple]="false">
-    <mat-list-option *ngFor="let shoe of typesOfShoes" [value]="shoe">
-      {{shoe}}
+<mat-spinner *ngIf="motorcycles.length === 0"></mat-spinner>
+
+<mat-selection-list  #motos [multiple]="false" [(ngModel)]="selectedMoto" (ngModelChange)="onNgModelChange($event)">
+    <mat-list-option *ngFor="let moto of motorcycles" [value]="moto">
+      {{moto.make.name}} {{moto.model}}
     </mat-list-option>
+    
   </mat-selection-list>
-  
-  <p>
-    Option selected: {{shoes.selectedOptions.selected[0]?.value}}
-  </p>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IMotorcycle, MotorcyclesService } from '../services/motorcycles.service';
 
 
 @Component({
@@ -8,9 +9,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MotorcyclesComponent implements OnInit {
 
-  constructor() { }
+  get motorcycleModel(): IMotorcycle{
+    
+    console.log(this._motoService.selectedMotorcycle)
+    return this._motoService.selectedMotorcycle
+  }
+
+  // selectedMoto: any;
+
+  
+
+  constructor(private _motoService: MotorcyclesService) {
+    
+  }
 
   ngOnInit(): void {
   }
+
+  // ngOnDestroy() {
+  //   //prevent memory leak when component destroyed
+  //    this._subscription.unsubscribe();
+  //  }
+
+  // async GetData(){
+  //   this.motorcycles = await this._motoService.GetMotorcycles;
+  // }
 
 }

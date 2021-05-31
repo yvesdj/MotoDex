@@ -33,7 +33,8 @@ namespace MotoDex.Controllers
         [HttpGet]
         public IEnumerable<Motorcycle> GetAllMotorcycles(string model, string make, string sort, string dir, int? page, int? length)
         {
-            IQueryable<Motorcycle> motos = _context.Motorcycles;
+            IQueryable<Motorcycle> motos = _context.Motorcycles
+                .Include(moto => moto.Make);
             #region Query
             if (!string.IsNullOrWhiteSpace(model))
             {
